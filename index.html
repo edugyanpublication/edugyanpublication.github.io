@@ -144,20 +144,30 @@
     </footer>
 
     <script>
-        // Database mapped to your direct GitHub video files inside the 'videos/' folder
+        // Complete Database for Classes 1 to 5 with Multi-Chapter Support
         const database = {
             "1": {
-                "maths": { class: "Class 1", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Counting Numbers", file: "videos/class1-maths-ch1.mp4" }] },
+                "maths": { 
+                    class: "Class 1", 
+                    name: "Mathematics 3D Animations", 
+                    videos: [
+                        { title: "Chapter 1: Counting Numbers", file: "videos/class1-maths-ch1.mp4" }
+                    ] 
+                },
                 "english": { 
                     class: "Class 1", 
                     name: "English 3D Animations", 
                     videos: [
                         { title: "Chapter 1: Alphabet Sounds", file: "videos/class1-english-ch1.mp4" }
-                        // You can add more chapters here later, e.g.:
-                        // { title: "Chapter 2: Story Time", file: "videos/class1-english-ch2.mp4" }
                     ] 
                 },
-                "evs": { class: "Class 1", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Parts of Body", file: "videos/class1-evs-ch1.mp4" }] }
+                "evs": { 
+                    class: "Class 1", 
+                    name: "EVS 3D Animations", 
+                    videos: [
+                        { title: "Chapter 1: Parts of Body", file: "videos/class1-evs-ch1.mp4" }
+                    ] 
+                }
             },
             "2": {
                 "maths": { class: "Class 2", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Shapes", file: "videos/class2-maths-ch1.mp4" }] },
@@ -195,14 +205,13 @@
             const videoListContainer = document.getElementById('videoList');
             videoListContainer.innerHTML = '';
 
-            // Automatically loops and lists ALL videos for this subject
             data.videos.forEach(v => {
                 const card = document.createElement('div');
                 card.className = 'video-card';
                 card.innerHTML = `
                     <div class="video-title-bar">${v.title}</div>
                     <div class="video-wrapper">
-                        <video controls controlsList="nodownload" playsinline>
+                        <video controls controlsList="nodownload" playsinline preload="metadata">
                             <source src="${v.file}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -211,7 +220,6 @@
                 videoListContainer.appendChild(card);
             });
         } else {
-            // Show restriction screen if parameters are missing or incorrect
             document.getElementById('restricted-view').classList.remove('hidden');
         }
     </script>
