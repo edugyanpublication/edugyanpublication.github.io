@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduGyan 3D Animation Learning Portal</title>
+    <title>EduGyan 3D Animation Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -80,13 +80,11 @@
             width: 100%;
             aspect-ratio: 16/9;
         }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        video {
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: contain;
+            outline: none;
         }
 
         /* Access Denied / Restricted View */
@@ -146,32 +144,40 @@
     </footer>
 
     <script>
-        // Map your classes, subjects, and secure video iframe codes here:
+        // Database mapped to your direct GitHub video files inside the 'videos/' folder
         const database = {
             "1": {
-                "maths": { class: "Class 1", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Counting Numbers", embed: '<iframe src="https://iframe.mediadelivery.net/embed/YOUR_LIBRARY_ID/YOUR_VIDEO_ID" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>' }] },
-                "english": { class: "Class 1", name: "English 3D Animations", videos: [{ title: "Chapter 1: Alphabet Sounds", file: "videos/class1-maths-ch1.mp4" }] },
-                "evs": { class: "Class 1", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Parts of Body", embed: '<iframe src="https://iframe.mediadelivery.net/embed/..." ...></iframe>' }] }
+                "maths": { class: "Class 1", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Counting Numbers", file: "videos/class1-maths-ch1.mp4" }] },
+                "english": { 
+                    class: "Class 1", 
+                    name: "English 3D Animations", 
+                    videos: [
+                        { title: "Chapter 1: Alphabet Sounds", file: "videos/class1-english-ch1.mp4" }
+                        // You can add more chapters here later, e.g.:
+                        // { title: "Chapter 2: Story Time", file: "videos/class1-english-ch2.mp4" }
+                    ] 
+                },
+                "evs": { class: "Class 1", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Parts of Body", file: "videos/class1-evs-ch1.mp4" }] }
             },
             "2": {
-                "maths": { class: "Class 2", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Shapes", embed: '<iframe src="..." ...></iframe>' }] },
-                "english": { class: "Class 2", name: "English 3D Animations", videos: [{ title: "Chapter 2: Action Words", embed: '<iframe src="..." ...></iframe>' }] },
-                "evs": { class: "Class 2", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Plants", embed: '<iframe src="..." ...></iframe>' }] }
+                "maths": { class: "Class 2", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Shapes", file: "videos/class2-maths-ch1.mp4" }] },
+                "english": { class: "Class 2", name: "English 3D Animations", videos: [{ title: "Chapter 1: Action Words", file: "videos/class2-english-ch1.mp4" }] },
+                "evs": { class: "Class 2", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Plants", file: "videos/class2-evs-ch1.mp4" }] }
             },
             "3": {
-                "maths": { class: "Class 3", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Tables", embed: '<iframe src="..." ...></iframe>' }] },
-                "english": { class: "Class 3", name: "English 3D Animations", videos: [{ title: "Chapter 1: Nouns", embed: '<iframe src="..." ...></iframe>' }] },
-                "evs": { class: "Class 3", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Water", embed: '<iframe src="..." ...></iframe>' }] }
+                "maths": { class: "Class 3", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Tables", file: "videos/class3-maths-ch1.mp4" }] },
+                "english": { class: "Class 3", name: "English 3D Animations", videos: [{ title: "Chapter 1: Nouns", file: "videos/class3-english-ch1.mp4" }] },
+                "evs": { class: "Class 3", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Water", file: "videos/class3-evs-ch1.mp4" }] }
             },
             "4": {
-                "maths": { class: "Class 4", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Fractions", embed: '<iframe src="..." ...></iframe>' }] },
-                "english": { class: "Class 4", name: "English 3D Animations", videos: [{ title: "Chapter 1: Tenses", embed: '<iframe src="..." ...></iframe>' }] },
-                "evs": { class: "Class 4", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Animals", embed: '<iframe src="..." ...></iframe>' }] }
+                "maths": { class: "Class 4", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Fractions", file: "videos/class4-maths-ch1.mp4" }] },
+                "english": { class: "Class 4", name: "English 3D Animations", videos: [{ title: "Chapter 1: Tenses", file: "videos/class4-english-ch1.mp4" }] },
+                "evs": { class: "Class 4", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Animals", file: "videos/class4-evs-ch1.mp4" }] }
             },
             "5": {
-                "maths": { class: "Class 5", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Area & Volume", embed: '<iframe src="..." ...></iframe>' }] },
-                "english": { class: "Class 5", name: "English 5 Animations", videos: [{ title: "Chapter 1: Composition", embed: '<iframe src="..." ...></iframe>' }] },
-                "evs": { class: "Class 5", name: "EVS 5 Animations", videos: [{ title: "Chapter 1: Ecosystems", embed: '<iframe src="..." ...></iframe>' }] }
+                "maths": { class: "Class 5", name: "Mathematics 3D Animations", videos: [{ title: "Chapter 1: Area & Volume", file: "videos/class5-maths-ch1.mp4" }] },
+                "english": { class: "Class 5", name: "English 3D Animations", videos: [{ title: "Chapter 1: Composition", file: "videos/class5-english-ch1.mp4" }] },
+                "evs": { class: "Class 5", name: "EVS 3D Animations", videos: [{ title: "Chapter 1: Ecosystems", file: "videos/class5-evs-ch1.mp4" }] }
             }
         };
 
@@ -189,12 +195,18 @@
             const videoListContainer = document.getElementById('videoList');
             videoListContainer.innerHTML = '';
 
+            // Automatically loops and lists ALL videos for this subject
             data.videos.forEach(v => {
                 const card = document.createElement('div');
                 card.className = 'video-card';
                 card.innerHTML = `
                     <div class="video-title-bar">${v.title}</div>
-                    <div class="video-wrapper">${v.embed}</div>
+                    <div class="video-wrapper">
+                        <video controls controlsList="nodownload" playsinline>
+                            <source src="${v.file}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 `;
                 videoListContainer.appendChild(card);
             });
