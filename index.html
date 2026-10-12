@@ -3,41 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Animation Learning Portal - Classes 1 to 5</title>
+    <title>EduGyan 3D Animation Learning Portal</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 20px; text-align: center; }
-        h1 { color: #333; }
-        .class-box { background: white; margin: 15px auto; padding: 15px; max-width: 500px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-        .class-box h3 { margin-top: 0; color: #007bff; }
-        ul { padding-left: 20px; }
-        li { margin: 8px 0; }
-        a { text-decoration: none; color: #333; font-weight: bold; }
-        a:hover { color: #007bff; }
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #4f46e5, #3b82f6);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0; font-size: 1.5rem; }
+        header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
+        
+        main {
+            flex: 1;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        
+        /* Home View (Grid of classes if opened directly) */
+        .home-container h2 { text-align: center; color: var(--primary); margin-bottom: 20px; }
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .class-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+        .class-card h3 { margin-top: 0; color: var(--primary); }
+        .sub-links { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
+        .sub-links a {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .sub-links a:hover { background: #c7d2fe; }
+
+        /* Subject Specific View */
+        .subject-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .back-btn {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .video-list { display: flex; flex-direction: column; gap: 20px; }
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .video-card h3 {
+            padding: 15px 20px 10px;
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8rem;
+            color: #64748b;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
-    <h1>Class-wise 3D Animation Videos</h1>
-    <p>Select your class and subject to view animations</p>
 
-    <!-- Class 1 -->
-    <div class="class-box">
-        <h3>Class 1</h3>
-        <ul>
-            <li><a href="class1-maths.html">Mathematics</a></li>
-            <li><a href="class1-english.html">English</a></li>
-            <li><a href="class1-evs.html">EVS</a></li>
-        </ul>
-    </div>
+    <header>
+        <h1>EduGyan 3D Animation Learning Portal</h1>
+        <p>Interactive Subject Videos for Classes 1 to 5</p>
+    </header>
 
-    <!-- Class 2 -->
-    <div class="class-box">
-        <h3>Class 2</h3>
-        <ul>
-            <li><a href="class2-maths.html">Mathematics</a></li>
-            <li><a href="class2-english.html">English</a></li>
-            <li><a href="class2-evs.html">EVS</a></li>
-        </ul>
-    </div>
-    <!-- (Repeat similar blocks for Classes 3, 4, and 5) -->
+    <main>
+        <!-- HOME VIEW (Shown if no query parameters provided) -->
+        <div id="home-view">
+            <h2>Select Class & Subject</h2>
+            <div class="class-grid" id="classGrid">
+                <!-- Dynamically populated classes 1 to 5 -->
+            </div>
+        </div>
+
+        <!-- SUBJECT VIEW (Shown only when QR code is scanned with ?class=X&subject=Y) -->
+        <div id="subject-view" class="hidden">
+            <div class="subject-header">
+                <div>
+                    <h2 id="subjectTitle" style="margin:0; color:var(--primary); font-size:1.2rem;"></h2>
+                </div>
+                <a href="?" class="back-btn">&larr; All Classes</a>
+            </div>
+            <div class="video-list" id="videoList">
+                <!-- Dynamically populated video cards -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 EduGyan Publications. All Rights Reserved. Secure Streaming.
+    </footer>
+
+    <script>
+        // Sample database containing video lists for each class and subject.
+        // Replace the iframe video URLs or IDs later with your real 3D animation videos!
+        const database = {
+            "1": {
+                "maths": {
+                    name: "Class 1 - Mathematics",
+                    videos: [
+                        { title: "Chapter 1: Counting Numbers (3D Animation)", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+                        { title: "Chapter 2: Shapes Around Us", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+                    ]
+                },
+                "english": {
+                    name: "Class 1 - English",
+                    videos: [
+                        { title: "Chapter 1: Alphabet Sounds & Phonics", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+                        { title: "Chapter 2: The Friendly Cat Story", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+                    ]
+                },
+                "evs": {
+                    name: "Class 1 - EVS",
+                    videos: [
+                        { title: "Chapter 1: Parts of My Body", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+                        { title: "Chapter 2: My Family & Home", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+                    ]
+                }
+            },
+            "2": {
+                "maths": {
+                    name: "Class 2 - Mathematics",
+                    videos: [
+                        { title: "Chapter 1: Two-Digit Addition & Subtraction", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+                    ]
+                },
+                "english": {
+                    name: "Class 2 - English",
+                    videos: [
+                        { title: "Chapter 1: Action Words & Sentences", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+                    ]
+                },
+                "evs": {
+                    name: "Class 2 - EVS",
+                    videos: [
+                        { title: "Chapter 1: Plants Around Us", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+                    ]
+                }
+            },
+            "3": {
+                "maths": { name: "Class 3 - Mathematics", videos: [{ title: "Chapter 1: Multiplication Tables in 3D", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] },
+                "english": { name: "Class 3 - English", videos: [{ title: "Chapter 1: Nouns and Pronouns", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] },
+                "evs": { name: "Class 3 - EVS", videos: [{ title: "Chapter 1: Our Environment & Water", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] }
+            },
+            "4": {
+                "maths": { name: "Class 4 - Mathematics", videos: [{ title: "Chapter 1: Fractions and Decimals", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] },
+                "english": { name: "Class 4 - English", videos: [{ title: "Chapter 1: Tenses and Storytelling", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] },
+                "evs": { name: "Class 4 - EVS", videos: [{ title: "Chapter 1: Ecosystems & Animals", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] }
+            },
+            "5": {
+                "maths": { name: "Class 5 - Mathematics", videos: [{ title: "Chapter 1: Area, Perimeter & Volume", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] },
+                "english": { name: "Class 5 - English", videos: [{ title: "Chapter 1: Advanced Grammar & Composition", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] },
+                "evs": { name: "Class 5 - EVS", videos: [{ title: "Chapter 1: Natural Resources & Conservation", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }] }
+            }
+        };
+
+        // Parse URL parameters to see if a specific class & subject was requested via QR code
+        const urlParams = new URLSearchParams(window.location.search);
+        const cls = urlParams.get('class');
+        const subj = urlParams.get('subject');
+
+        if (cls && subj && database[cls] && database[cls][subj]) {
+            // Show only the requested subject view
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('subject-view').classList.remove('hidden');
+
+            const data = database[cls][subj];
+            document.getElementById('subjectTitle').innerText = data.name;
+
+            const videoListContainer = document.getElementById('videoList');
+            videoListContainer.innerHTML = '';
+
+            data.videos.forEach(v => {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.innerHTML = `
+                    <h3>${v.title}</h3>
+                    <div class="video-wrapper">
+                        <iframe src="${v.url}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                `;
+                videoListContainer.appendChild(card);
+            });
+        } else {
+            // Render home grid for Classes 1 to 5
+            const grid = document.getElementById('classGrid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                const card = document.createElement('div');
+                card.className = 'class-card';
+                card.innerHTML = `
+                    <h3>Class ${i}</h3>
+                    <div class="sub-links">
+                        <a href="?class=${i}&subject=maths">Mathematics</a>
+                        <a href="?class=${i}&subject=english">English</a>
+                        <a href="?class=${i}&subject=evs">EVS</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            }
+        }
+    </script>
 </body>
 </html>
